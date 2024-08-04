@@ -51,7 +51,7 @@ jobs:
             -r 300
           mv jetson.img "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           lrzip "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          ls -lht "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
+          ls -lht "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img.lrz"
 
       - name: Build jetson image for Jetson nano revision 200
         if: matrix.ubuntu == '22.04'
@@ -61,7 +61,7 @@ jobs:
             -r 200
           mv jetson.img "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           lrzip "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          ls -lht "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
+          ls -lht "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img.lrz"
 
       - name: Build jetson image for Jetson nano revision 100
         if: matrix.ubuntu == '22.04'
@@ -71,7 +71,7 @@ jobs:
             -r 100
           mv jetson.img "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           lrzip "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          ls -lht "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
+          ls -lht "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img.lrz"
 
       - name: Build jetson image for Jetson nano 2G
         if: matrix.ubuntu == '22.04'
@@ -80,7 +80,7 @@ jobs:
             -b jetson-nano-2gb
           mv jetson.img "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           lrzip "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          ls -lht "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
+          ls -lht "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img.lrz"
 
       # - name: Build jetson image for jetson orin nano SD
       #   if: matrix.ubuntu == '24.04'

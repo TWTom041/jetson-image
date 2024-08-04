@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y podman qemu-user-static pigz
+          sudo apt install -y podman qemu-user-static lrzip
           sudo systemctl start systemd-binfmt.service
 
       - name: Free Disk Space
@@ -50,7 +50,7 @@ jobs:
             -b jetson-nano \
             -r 300
           mv jetson.img "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          pigz "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
+          lrzip "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           ls -lht "jetson-nano-300_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
 
       - name: Build jetson image for Jetson nano revision 200
@@ -60,7 +60,7 @@ jobs:
             -b jetson-nano \
             -r 200
           mv jetson.img "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          pigz "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
+          lrzip "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           ls -lht "jetson-nano-200_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
 
       - name: Build jetson image for Jetson nano revision 100
@@ -70,7 +70,7 @@ jobs:
             -b jetson-nano \
             -r 100
           mv jetson.img "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          pigz "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
+          lrzip "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           ls -lht "jetson-nano-100_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
 
       - name: Build jetson image for Jetson nano 2G
@@ -79,7 +79,7 @@ jobs:
           just build-jetson-image \
             -b jetson-nano-2gb
           mv jetson.img "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
-          pigz "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
+          lrzip "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img"
           ls -lht "jetson-nano-2gb_${{ matrix.ubuntu }}_${L4T32_BSP}.img.gz"
 
       # - name: Build jetson image for jetson orin nano SD

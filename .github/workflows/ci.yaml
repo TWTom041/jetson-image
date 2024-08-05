@@ -27,7 +27,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y podman qemu-user-static lrzip
-          curl https://getcroc.schollz.com | sudo bash
           sudo systemctl start systemd-binfmt.service
 
       - name: Free Disk Space
@@ -148,9 +147,6 @@ jobs:
       #     mv jetson.img "jetson-xavier-nx_${{ matrix.ubuntu }}_${L4T35_BSP}_USB.img"
       #     pigz "jetson-xavier-nx_${{ matrix.ubuntu }}_${L4T35_BSP}_USB.img"
       #     ls -lht "jetson-xavier-nx_${{ matrix.ubuntu }}_${L4T35_BSP}_USB.img.gz"
-      - name: send file through croc
-        run: |
-          croc send jetson*
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
